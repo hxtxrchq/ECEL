@@ -60,7 +60,7 @@ const ServicesSection = () => {
   }
 
   return (
-    <section id="services" className="section-gap bg-brand-light">
+    <section id="services" className="section-gap bg-brand-light scroll-mt-24 md:scroll-mt-28">
       <div className="section-shell" ref={ref}>
         <motion.div
           variants={containerVariants}

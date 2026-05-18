@@ -37,7 +37,7 @@ const ContactSection = () => {
 ]
 
   return (
-    <section id="contact" className="section-gap bg-brand-dark overflow-hidden">
+    <section id="contact" className="section-gap bg-brand-dark overflow-hidden scroll-mt-24 md:scroll-mt-28">
       <div ref={ref} className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

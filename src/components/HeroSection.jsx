@@ -38,7 +38,6 @@ const HeroSection = () => {
 							alt={slides[activeSlide].alt}
 							className="h-full w-full object-cover"
 							loading={activeSlide === 0 ? 'eager' : 'lazy'}
-							fetchPriority={activeSlide === 0 ? 'high' : 'auto'}
 							decoding="async"
 							initial={{ opacity: 0, scale: 1.06 }}
 							animate={{ opacity: 1, scale: 1 }}

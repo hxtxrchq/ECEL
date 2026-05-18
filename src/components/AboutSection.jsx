@@ -36,7 +36,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="section-gap bg-brand-dark py-20 md:py-28">
+    <section id="about" className="section-gap bg-brand-dark py-20 md:py-28 scroll-mt-24 md:scroll-mt-28">
       <div ref={ref} className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

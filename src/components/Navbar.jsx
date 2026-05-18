@@ -14,7 +14,19 @@ const Navbar = ({ isScrolled }) => {
 	]
 
 	const goTo = (href) => {
-		document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+		const target = document.querySelector(href)
+
+		if (!target) {
+			window.location.hash = href
+			setIsOpen(false)
+			return
+		}
+
+		const offset = 88
+		const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset)
+
+		window.scrollTo({ top: targetTop, behavior: 'smooth' })
+		window.history.replaceState(null, '', href)
 		setIsOpen(false)
 	}
 
@@ -78,13 +90,14 @@ const Navbar = ({ isScrolled }) => {
 							<div className="card-soft overflow-hidden p-4">
 								<div className="flex flex-col gap-2">
 									{links.map((item) => (
-										<button
+										<a
 											key={item.href}
-											onClick={() => goTo(item.href)}
+											href={item.href}
+											onClick={() => setIsOpen(false)}
 											className="rounded-2xl px-4 py-3 text-left text-sm text-brand-light transition-colors hover:bg-brand-beige/10"
 										>
 											{item.label}
-										</button>
+										</a>
 									))}
 								</div>
 							</div>

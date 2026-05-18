@@ -43,7 +43,7 @@ const ProjectsSection = () => {
 	]
 
 	return (
-		<section id="projects" className="section-gap bg-brand-dark">
+		<section id="projects" className="section-gap bg-brand-dark scroll-mt-24 md:scroll-mt-28">
 			<div className="section-shell" ref={ref}>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}

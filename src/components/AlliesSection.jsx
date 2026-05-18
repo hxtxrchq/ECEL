@@ -30,7 +30,7 @@ const AlliesSection = () => {
 }
 
   return (
-    <section id="allies" className="section-gap bg-white py-12 md:py-16">
+    <section id="allies" className="section-gap bg-white py-12 md:py-16 scroll-mt-24 md:scroll-mt-28">
       <div ref={ref} className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
