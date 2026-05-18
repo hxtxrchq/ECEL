@@ -7,10 +7,8 @@ const Navbar = ({ isScrolled }) => {
 	const links = [
 		{ label: 'Inicio', href: '#hero' },
 		{ label: 'Sobre Nosotros', href: '#about' },
-		{ label: 'Aliados', href: '#allies' },
 		{ label: 'Servicios', href: '#services' },
 		{ label: 'Proyectos', href: '#projects' },
-		{ label: 'Contacto', href: '#contact' },
 	]
 
 	const goTo = (href) => {
