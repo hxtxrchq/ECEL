@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-brand-dark text-brand-light font-sans antialiased;
+		background-image:
+			radial-gradient(circle at top left, rgba(242, 242, 242, 0.06), transparent 28%),
+			linear-gradient(180deg, rgba(31, 31, 35, 0.96), rgba(31, 31, 35, 1));
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-display tracking-editorial uppercase;
+	}
+
+	::selection {
+		background: #BFBFBA;
+		color: #1D1B16;
+	}
+}
+
+@layer components {
+	.section-shell {
+		@apply max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12;
+	}
+
+	.section-gap {
+		@apply py-24 md:py-32;
+	}
+
+	.eyebrow {
+		@apply text-xs md:text-sm uppercase tracking-[0.35em] text-brand-beige/80;
+	}
+
+	.editorial-title {
+		@apply text-4xl sm:text-5xl lg:text-7xl leading-[0.92] font-display;
+	}
+
+	.editorial-subtitle {
+		@apply text-sm sm:text-base md:text-lg text-brand-beige/80 leading-relaxed;
+	}
+
+	.glass-nav {
+		/* Usar gris oscuro neutro en lugar de tono rojizo */
+		background-color: rgba(31, 31, 35, 0.88);
+		backdrop-filter: blur(14px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center rounded-full bg-brand-light px-7 py-3 text-sm font-semibold text-brand-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-white;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center justify-center rounded-full border border-brand-beige/25 px-7 py-3 text-sm font-semibold text-brand-light transition-all duration-300 hover:border-brand-light hover:bg-brand-light/10;
+	}
+
+	.card-soft {
+		@apply rounded-[1.5rem] border border-brand-beige/10 bg-white/5 shadow-editorial backdrop-blur-sm;
+	}
+
+	.image-overlay {
+		@apply absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent;
+	}
+
+	.kicker-line {
+		@apply h-px w-16 bg-brand-beige/40;
+	}
+
+	.hover-lift {
+		@apply transition-transform duration-500 ease-out hover:-translate-y-1;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1D1B16;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #595845;
+	border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #8C8B7B;
+}
