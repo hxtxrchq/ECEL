@@ -1,24 +1,43 @@
-import React, { useState, useEffect } from 'react'
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
-import AboutSection from './components/AboutSection'
-import AlliesSection from './components/AlliesSection'
-import ServicesSection from './components/ServicesSection'
-import ProjectsSection from './components/ProjectsSection'
-import ContactSection from './components/ContactSection'
-import Footer from './components/Footer'
-import WhatsAppButton from './components/WhatsAppButton'
+
+const AboutSection = lazy(() => import('./components/AboutSection'))
+const AlliesSection = lazy(() => import('./components/AlliesSection'))
+const ServicesSection = lazy(() => import('./components/ServicesSection'))
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'))
+const ContactSection = lazy(() => import('./components/ContactSection'))
+const Footer = lazy(() => import('./components/Footer'))
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const animationFrameRef = useRef(null)
+  const isTickingRef = useRef(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      if (isTickingRef.current) {
+        return
+      }
+
+      isTickingRef.current = true
+      animationFrameRef.current = window.requestAnimationFrame(() => {
+        const nextState = window.scrollY > 10
+        setIsScrolled((current) => (current === nextState ? current : nextState))
+        isTickingRef.current = false
+      })
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current)
+      }
+    }
   }, [])
 
   return (
@@ -26,14 +45,18 @@ function App() {
       <Navbar isScrolled={isScrolled} />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <ProjectsSection />
-        <AlliesSection />
-        <ContactSection />
+        <Suspense fallback={<div className="h-24" aria-hidden="true" />}>
+          <AboutSection />
+          <ServicesSection />
+          <ProjectsSection />
+          <AlliesSection />
+          <ContactSection />
+        </Suspense>
       </main>
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={null}>
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </div>
   )
 }

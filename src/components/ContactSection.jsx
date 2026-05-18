@@ -64,6 +64,8 @@ const ContactSection = () => {
                           src={item.logo} 
                           alt={item.label} 
                           className="w-5 h-5 object-contain brightness-0 invert" 
+                          loading="lazy"
+                          decoding="async"
                           onError={(e) => {
                             e.target.style.display = 'none'
                           }} 
@@ -97,7 +99,13 @@ const ContactSection = () => {
                   rel="noreferrer"
                   className="group relative flex items-center justify-center rounded-full border border-white/10 bg-black/50 p-5 transition-all hover:scale-110 hover:border-white/30 hover:bg-white/10"
                 >
-                  <img src={facebookLogo} alt="Facebook" className="w-8 h-8 object-contain transition-transform group-hover:scale-110 brightness-0 invert" />
+                  <img
+                    src={facebookLogo}
+                    alt="Facebook"
+                    className="w-8 h-8 object-contain transition-transform group-hover:scale-110 brightness-0 invert"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
                 <a
                   href="https://www.instagram.com/ecelingenieriaconstruccion/"
@@ -105,7 +113,13 @@ const ContactSection = () => {
                   rel="noreferrer"
                   className="group relative flex items-center justify-center rounded-full border border-white/10 bg-black/50 p-5 transition-all hover:scale-110 hover:border-white/30 hover:bg-white/10"
                 >
-                  <img src={instagramLogo} alt="Instagram" className="w-8 h-8 object-contain transition-transform group-hover:scale-110 brightness-0 invert" />
+                  <img
+                    src={instagramLogo}
+                    alt="Instagram"
+                    className="w-8 h-8 object-contain transition-transform group-hover:scale-110 brightness-0 invert"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
               </div>
             </div>

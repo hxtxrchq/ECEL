@@ -5,15 +5,15 @@ import { FiArrowRight } from 'react-icons/fi'
 const HeroSection = () => {
 	const slides = [
 		{
-			src: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1800&h=1200&fit=crop',
+			src: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&h=900&q=70',
 			alt: 'Edificio corporativo y contexto inmobiliario',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&h=1200&fit=crop',
+			src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&h=900&q=70',
 			alt: 'Detalle arquitectónico de obra contemporánea',
 		},
 		{
-			src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&h=1200&fit=crop',
+			src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&h=900&q=70',
 			alt: 'Obra e infraestructura moderna',
 		},
 	]
@@ -37,6 +37,9 @@ const HeroSection = () => {
 							src={slides[activeSlide].src}
 							alt={slides[activeSlide].alt}
 							className="h-full w-full object-cover"
+							loading={activeSlide === 0 ? 'eager' : 'lazy'}
+							fetchPriority={activeSlide === 0 ? 'high' : 'auto'}
+							decoding="async"
 							initial={{ opacity: 0, scale: 1.06 }}
 							animate={{ opacity: 1, scale: 1 }}
 							exit={{ opacity: 0, scale: 1.03 }}

@@ -27,10 +27,17 @@ const Navbar = ({ isScrolled }) => {
 		>
 			<div className="section-shell">
 				<div className="flex h-20 items-center justify-between gap-6">
-					<button onClick={() => goTo('#hero')} className="flex items-center gap-3 text-left">
-						<span className="font-display text-3xl tracking-[0.08em] text-brand-light">ECEL</span>
-						<span className="hidden md:block text-[0.62rem] uppercase tracking-[0.35em] text-brand-beige/75">
-							Ingeniería y Construcción
+					<button onClick={() => goTo('#hero')} className="flex items-center text-left">
+						<span className="block h-14 w-44 overflow-hidden">
+							<img
+							src="/images/header-logo/logo-ecel.png"
+							alt="ECEL"
+							className="h-full w-auto origin-left scale-[2.35] object-contain"
+							width="250"
+							height="74"
+							loading="eager"
+							decoding="async"
+							/>
 						</span>
 					</button>
 
