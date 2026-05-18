@@ -10,11 +10,31 @@ const ContactSection = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
 
   const details = [
-    { icon: FiPhone, label: 'WhatsApp', value: '+51 987 382 111', logo: whatsappLogo, link: 'https://wa.me/51987382111' },
-    { icon: FiMail, label: 'Correo', value: 'elazo@ecelperu.com', link: 'mailto:elazo@ecelperu.com' },
-    { icon: FiMapPin, label: 'Oficina', value: 'Av. Los Colibríes Mz. P Lt. 11 - 2 Piso, Oficina 23' },
-    { icon: FiMapPin, label: 'Cobertura', value: 'Trujillo - Chimbote - Lima' },
-  ]
+  { 
+    icon: FiPhone, 
+    label: 'WhatsApp', 
+    value: '+51 987 382 111', 
+    logo: whatsappLogo, 
+    link: 'https://wa.me/51987382111' 
+  },
+  { 
+    icon: FiMail, 
+    label: 'Correo', 
+    value: 'elazo@ecelperu.com', 
+    link: 'mailto:elazo@ecelperu.com' 
+  },
+  { 
+    icon: FiMapPin, 
+    label: 'Oficina', 
+    value: 'Av. Los Colibríes Mz. P Lt. 11 - 2 Piso, Oficina 23',
+    link: 'https://www.google.com/maps/search/?api=1&query=Av.%20Los%20Colibr%C3%ADes%20Mz.%20P%20Lt.%2011%20-%202%20Piso,%20Oficina%2023'
+  },
+  { 
+    icon: FiMapPin, 
+    label: 'Cobertura', 
+    value: 'Trujillo - Chimbote - Lima' 
+  },
+]
 
   return (
     <section id="contact" className="section-gap bg-brand-dark overflow-hidden">
