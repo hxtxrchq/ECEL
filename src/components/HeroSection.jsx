@@ -61,7 +61,7 @@ const HeroSection = () => {
 						</div>
 
 						<h1 className="editorial-title text-brand-light leading-tight">
-							Ingeniería y construcción con criterio técnico.
+							Ingeniería y construcción con criterio técnico
 						</h1>
 
 						<p className="mt-6 max-w-2xl text-base leading-7 text-brand-beige/80 md:text-lg">
