@@ -7,7 +7,6 @@ const AlliesSection = lazy(() => import('./components/AlliesSection'))
 const ServicesSection = lazy(() => import('./components/ServicesSection'))
 const ProjectsSection = lazy(() => import('./components/ProjectsSection'))
 const ContactSection = lazy(() => import('./components/ContactSection'))
-const Footer = lazy(() => import('./components/Footer'))
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
 
 function App() {
@@ -54,7 +53,6 @@ function App() {
         </Suspense>
       </main>
       <Suspense fallback={null}>
-        <Footer />
         <WhatsAppButton />
       </Suspense>
     </div>

@@ -30,28 +30,28 @@ const Navbar = ({ isScrolled }) => {
 
 	return (
 		<motion.header
-			className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-nav' : 'bg-transparent'}`}
+			className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-nav navbar-scrolled' : 'bg-transparent'}`}
 			initial={{ y: -40, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.35 }}
 		>
 			<div className="section-shell">
-				<div className="flex h-20 items-center justify-between gap-6">
+				<div className="flex h-20 sm:h-24 items-center justify-between gap-6">
 					<button onClick={() => goTo('#hero')} className="flex items-center text-left">
-						<span className="block h-14 w-44 overflow-hidden">
+						<span className="block h-14 w-52 sm:h-16 sm:w-60 lg:h-20 lg:w-65 overflow-hidden rounded-sm">
 							<img
 							src="/images/header-logo/logo-ecel.png"
 							alt="ECEL"
-							className="h-full w-auto origin-left scale-[2.35] object-contain"
-							width="250"
-							height="74"
+							className="h-full w-full object-cover object-center"
+							width="320"
+							height="96"
 							loading="eager"
 							decoding="async"
 							/>
 						</span>
 					</button>
 
-					<nav className="hidden lg:flex items-center gap-8 text-sm text-brand-beige/80">
+					<nav className={`hidden lg:flex items-center gap-8 text-sm transition-colors duration-300 ${isScrolled ? 'text-brand-light/88' : 'text-brand-beige/80'}`}>
 						{links.map((item) => (
 							<button
 								key={item.href}
@@ -64,13 +64,13 @@ const Navbar = ({ isScrolled }) => {
 					</nav>
 
 					<div className="hidden md:block">
-						<button onClick={() => goTo('#contact')} className="btn-secondary">
-							Solicitar reunión
+						<button onClick={() => goTo('#contact')} className={isScrolled ? 'btn-secondary btn-secondary-scrolled' : 'btn-secondary'}>
+							Solicitar presupuesto
 						</button>
 					</div>
 
 					<button
-						className="lg:hidden rounded-full border border-brand-beige/20 px-4 py-2 text-xs uppercase tracking-[0.3em] text-brand-light"
+						className={`lg:hidden rounded-full border px-4 py-2 text-xs uppercase tracking-[0.3em] transition-all duration-300 ${isScrolled ? 'border-white/18 bg-brand-dark/35 text-brand-light shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md' : 'border-brand-beige/20 text-brand-light'}`}
 						onClick={() => setIsOpen((value) => !value)}
 					>
 						Menú

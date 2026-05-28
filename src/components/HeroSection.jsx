@@ -51,7 +51,7 @@ const HeroSection = () => {
 
 				<div className="relative section-shell min-h-[calc(100svh-5rem)] flex items-center">
 					<motion.div
-						className="max-w-3xl py-24 lg:py-32"
+						className="max-w-3xl py-20 lg:py-29 -translate-y-2 sm:-translate-y-4 lg:-translate-y-6"
 						initial={{ opacity: 0, y: 18 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -61,16 +61,16 @@ const HeroSection = () => {
 						</div>
 
 						<h1 className="editorial-title text-brand-light leading-tight">
-							Ingeniería y construcción con criterio técnico
+							Construimos confianza, edificamos tu futuro
 						</h1>
 
 						<p className="mt-6 max-w-2xl text-base leading-7 text-brand-beige/80 md:text-lg">
-							Soluciones en construcción, supervisión y gestión técnico-legal con estándares de calidad, seguridad y cumplimiento.
+							Cada proyecto es una nueva historia que merece ser contada con pasión y excelencia.
 						</p>
 
 						<div className="mt-8 flex flex-wrap items-center gap-4">
 							<a href="#contact" className="btn-primary inline-flex items-center">
-								Solicitar información
+								Solicitar presupuesto
 								<FiArrowRight className="ml-3" />
 							</a>
 							<a href="#projects" className="btn-secondary">

@@ -15,6 +15,7 @@ const AlliesSection = () => {
     { id: 7, name: 'Aliado 7', logo: '/images/brands/brand-7.png' },
     { id: 8, name: 'Aliado 8', logo: '/images/brands/brand-8.png' },
     { id: 9, name: 'Aliado 9', logo: '/images/brands/brand-9.png' },
+    { id: 10, name: 'Aliado 10', logo: '/images/brands/brand-10.png' },
   ]
 
   const logoScaleMap = {
@@ -27,6 +28,7 @@ const AlliesSection = () => {
   7: 'scale-150 md:scale-150',
   8: 'scale-150 md:scale-150',
   9: 'scale-90 md:scale-95',
+  10: 'scale-150 md:scale-150',
 }
 
   return (
@@ -77,7 +79,7 @@ const AlliesSection = () => {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className={`block w-full h-full object-contain object-center brightness-0 contrast-125 opacity-90 transition-all duration-500 ${logoScaleMap[brand.id] || 'scale-100'}`}
+                    className={`block w-full h-full object-contain object-center opacity-100 saturate-110 transition-all duration-500 ${logoScaleMap[brand.id] || 'scale-100'}`}
                     onError={(e) => {
                       e.currentTarget.style.display = 'none'
                     }}

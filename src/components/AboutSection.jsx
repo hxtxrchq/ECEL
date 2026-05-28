@@ -29,10 +29,10 @@ const AboutSection = () => {
   const { ref, inView } = useInView({ threshold: 0.22, triggerOnce: true })
 
   const metrics = [
-    { endValue: '7', suffix: ' años', label: 'Experiencia técnica' },
-    { endValue: '15', suffix: '+', prefix: true, label: 'Proyectos construidos y gestionados' },
-    { endValue: '100', suffix: '+', prefix: true, label: 'Gestiones y trámites al año' },
-    { endValue: 'Perú', static: true, label: 'Cobertura nacional' },
+    { endValue: '23', suffix: '', label: 'Proyectos ejecutados' },
+    { endValue: '425', suffix: '', label: 'Expedientes de saneamiento de propiedades' },
+    { endValue: '218', suffix: '', label: 'Proyectos de arquitectura' },
+    { endValue: '135', suffix: '+', label: 'Contratos por supervisión' },
   ]
 
   return (
@@ -53,7 +53,7 @@ const AboutSection = () => {
 
               <div className="mt-6 space-y-3">
                 <p className="max-w-3xl text-sm leading-6 text-brand-beige/78">
-                  En ECEL Ingeniería y Construcción contamos con 7 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto.
+                  En ECEL Ingeniería y Construcción contamos con 9 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto.
                 </p>
 
                 <p className="max-w-3xl text-sm leading-6 text-brand-beige/62">
@@ -123,7 +123,12 @@ const AboutSection = () => {
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Misión</h3>
                   <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
-                    Brindar soluciones integrales en construcción, supervisión de obras y saneamiento físico-legal, asegurando calidad, cumplimiento normativo y respaldo técnico en cada etapa del proyecto.
+                    Ofrecer soluciones eficientes en construcción,
+ejecución de obras y saneamiento físico-legal
+para empresas, garantizando calidad,
+cumplimiento y respaldo técnico en cada
+proyecto
+
                   </p>
                 </div>
               </article>
@@ -133,7 +138,12 @@ const AboutSection = () => {
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Visión</h3>
                   <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
-                    Ser una empresa referente en construcción y gestión técnica, reconocida por su eficiencia, profesionalismo y confianza en el desarrollo de proyectos inmobiliarios y empresariales.
+                    Ser una empresa líder en el sector
+construcción y saneamiento legal,
+reconocida por su eficiencia,
+profesionalismo y confianza en el
+desarrollo de proyectos
+inmobiliarios empresariales.
                   </p>
                 </div>
               </article>
