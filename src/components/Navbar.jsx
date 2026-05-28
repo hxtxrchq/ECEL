@@ -61,11 +61,11 @@ const Navbar = () => {
                         className="flex items-center text-left"
                         aria-label="Ir al inicio"
                     >
-                        <span className="block h-14 w-52 overflow-hidden rounded-sm sm:h-16 sm:w-60 lg:h-20 lg:w-65">
+                        <span className="block h-16 w-60 overflow-hidden sm:h-18 sm:w-68 lg:h-20 lg:w-[19rem]">
                             <img
                                 src="/images/header-logo/logo-ecel.png"
                                 alt="ECEL"
-                                className="h-full w-full object-contain object-left"
+                                className="h-full w-full object-cover object-left"
                                 width="320"
                                 height="96"
                                 loading="eager"
