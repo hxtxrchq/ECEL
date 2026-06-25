@@ -122,9 +122,8 @@ const AboutSection = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-beige/5 rounded-full blur-3xl -z-0 group-hover:bg-brand-beige/8 transition-all duration-300" />
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Misión</h3>
-                  <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
+                  <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75 text-justify">
                     Nuestra fuerza diferenciadora es la capacidad de identificar, formar e integrar líderes de alto rendimiento. A través de una delegación estratégica y planificada, empoderamos a la pequeña empresa para garantizar la máxima satisfacción del cliente y, en consecuencia, asegurar una sólida generación de riqueza
-
                   </p>
                 </div>
               </article>
@@ -133,7 +132,7 @@ const AboutSection = () => {
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-beige/5 rounded-full blur-3xl -z-0 group-hover:bg-brand-beige/8 transition-all duration-300" />
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Visión</h3>
-                  <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
+                  <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75 text-justify">
                     Consolidarnos como la organización más confiable del mercado, distinguidos por una cultura de disciplina, respeto y alta calidad. Transformamos desafíos en oportunidades de negocio viables que garantizan el éxito de nuestros clientes y el crecimiento integral de nuestro equipo
                   </p>
                 </div>
