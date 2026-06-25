@@ -11,31 +11,31 @@ const ContactSection = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
 
   const details = [
-  { 
-    icon: FiPhone, 
-    label: 'WhatsApp', 
-    value: '+51 987 382 111', 
-    logo: whatsappLogo, 
-    link: 'https://wa.me/51987382111' 
-  },
-  { 
-    icon: FiMail, 
-    label: 'Correo', 
-    value: 'elazo@ecelperu.com', 
-    link: 'mailto:elazo@ecelperu.com' 
-  },
-  { 
-    icon: FiMapPin, 
-    label: 'Oficina', 
-    value: 'Av. Los Colibríes - Trujillo',
-    link: 'https://www.google.com/maps/search/?api=1&query=Av.%20Los%20Colibr%C3%ADes%20-%20Trujillo'
-  },
-  { 
-    icon: FiMapPin, 
-    label: 'Cobertura', 
-    value: 'Trujillo - Chimbote - Lima' 
-  },
-]
+    {
+      icon: FiPhone,
+      label: 'WhatsApp',
+      value: '+51 987 382 111',
+      logo: whatsappLogo,
+      link: 'https://wa.me/51987382111'
+    },
+    {
+      icon: FiMail,
+      label: 'Correo',
+      value: 'elazo@ecelperu.com',
+      link: 'mailto:elazo@ecelperu.com'
+    },
+    {
+      icon: FiMapPin,
+      label: 'Oficina',
+      value: 'Av. Los Colibríes - Trujillo',
+      link: 'https://www.google.com/maps/search/?api=1&query=Av.%20Los%20Colibr%C3%ADes%20-%20Trujillo'
+    },
+    {
+      icon: FiMapPin,
+      label: 'Cobertura',
+      value: 'Trujillo - Chimbote - Lima'
+    },
+  ]
 
   const socialLinks = [
     {
@@ -52,7 +52,7 @@ const ContactSection = () => {
     },
     {
       label: 'LinkedIn',
-      href: '#',
+      href: 'https://www.linkedin.com/company/ecel-ingenieria-y-construccion/people/?viewAsMember=true',
       icon: FiLinkedin,
       pending: true,
     },
@@ -77,7 +77,7 @@ const ContactSection = () => {
             <div className="relative z-10 flex flex-col h-full justify-center">
               <div className="eyebrow mb-6 text-brand-beige/60">Contacto</div>
               <h2 className="text-4xl md:text-5xl font-display text-brand-light leading-[1.1] mb-6 text-glow-subtle">
-                Solicita una <br/>presupuesto
+                Solicitar <br />presupuesto
               </h2>
               <p className="max-w-md text-base leading-relaxed text-brand-beige/72 mb-10">
                 Completa el formulario y nos pondremos en contacto para brindarte una propuesta personalizada.
@@ -88,15 +88,15 @@ const ContactSection = () => {
                   <div key={item.label} className="flex items-center gap-4 group">
                     <div className="rounded-full border border-white/10 bg-black/30 p-2.5 text-brand-light flex-shrink-0 transition-colors group-hover:bg-white/10 group-hover:border-white/20">
                       {item.logo ? (
-                        <img 
-                          src={item.logo} 
-                          alt={item.label} 
-                          className="w-5 h-5 object-contain brightness-0 invert" 
+                        <img
+                          src={item.logo}
+                          alt={item.label}
+                          className="w-5 h-5 object-contain brightness-0 invert"
                           loading="lazy"
                           decoding="async"
                           onError={(e) => {
                             e.target.style.display = 'none'
-                          }} 
+                          }}
                         />
                       ) : (
                         <item.icon size={18} className="opacity-80" />
@@ -153,8 +153,16 @@ const ContactSection = () => {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 md:p-14 backdrop-blur-sm shadow-editorial self-center">
-            <div className="mb-6 whitespace-nowrap text-[8px] sm:text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-brand-beige/45 text-center md:text-left leading-none overflow-hidden">
-              Construcción - Supervisión - Diseño arquitectónico - Saneamiento de propiedades
+            <div className="mb-8 flex justify-center md:justify-start">
+              <div className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-semibold text-brand-light/90 shadow-sm flex items-center gap-x-2.5 flex-wrap justify-center">
+                <span>Construcción</span>
+                <span className="text-white/20">•</span>
+                <span>Supervisión</span>
+                <span className="text-white/20">•</span>
+                <span>Diseño Arquitectónico</span>
+                <span className="text-white/20">•</span>
+                <span>Saneamiento</span>
+              </div>
             </div>
             <div className="grid gap-7">
               <div className="grid gap-3">
@@ -179,7 +187,7 @@ const ContactSection = () => {
                   type="email"
                 />
               </div>
-              
+
               <div className="grid gap-3">
                 <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Descripción</label>
                 <textarea
@@ -195,7 +203,7 @@ const ContactSection = () => {
                 ENVIAR SOLICITUD
                 <FiArrowRight className="ml-3" />
               </button>
-              <p className="text-center text-[9px] uppercase tracking-[0.4em] text-brand-beige/25">
+              <p className="text-center text-[10.5px] uppercase tracking-[0.25em] text-brand-beige/70 font-medium">
                 Respuesta garantizada en menos de 24 horas
               </p>
             </div>

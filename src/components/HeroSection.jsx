@@ -69,12 +69,9 @@ const HeroSection = () => {
 						</p>
 
 						<div className="mt-8 flex flex-wrap items-center gap-4">
-							<a href="#contact" className="btn-primary inline-flex items-center">
-								Solicitar presupuesto
-								<FiArrowRight className="ml-3" />
-							</a>
-							<a href="#projects" className="btn-secondary">
+							<a href="#projects" className="btn-primary inline-flex items-center">
 								Portafolio
+								<FiArrowRight className="ml-3" />
 							</a>
 						</div>
 

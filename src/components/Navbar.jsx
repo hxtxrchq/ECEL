@@ -46,8 +46,8 @@ const Navbar = () => {
     return (
         <motion.header
             className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
-                isScrolled
-                    ? 'border-white/10 bg-brand-dark/70 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.18)]'
+                isScrolled || isOpen
+                    ? 'border-white/10 bg-brand-dark/95 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.25)]'
                     : 'border-transparent bg-transparent'
             }`}
             initial={{ y: -40, opacity: 0 }}
@@ -100,9 +100,9 @@ const Navbar = () => {
 
                         <a
                             href="tel:987382111"
-                            className="mt-2 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-brand-light/82 transition-colors duration-300 hover:text-white"
+                            className="mt-2.5 inline-flex items-center gap-2 text-[15px] font-semibold tracking-wide text-white transition-colors duration-300 hover:text-brand-beige"
                         >
-                            <FiPhone className="text-[13px] text-brand-light/70" />
+                            <FiPhone className="text-[15px] text-brand-beige" />
                             987382111
                         </a>
                     </div>
@@ -152,9 +152,9 @@ const Navbar = () => {
 
                                     <a
                                         href="tel:987382111"
-                                        className="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-brand-light/75 transition-colors duration-300 hover:text-white"
+                                        className="inline-flex items-center gap-2 px-4 py-3 text-[15px] font-semibold text-white transition-colors duration-300 hover:text-brand-beige"
                                     >
-                                        <FiPhone className="text-[15px]" />
+                                        <FiPhone className="text-[16px] text-brand-beige" />
                                         987382111
                                     </a>
                                 </div>
