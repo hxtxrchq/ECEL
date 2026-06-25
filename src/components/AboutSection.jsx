@@ -61,7 +61,7 @@ const AboutSection = () => {
                 </p>
               </div>
 
-              
+
             </div>
 
             <motion.div
@@ -123,11 +123,7 @@ const AboutSection = () => {
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Misión</h3>
                   <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
-                    Ofrecer soluciones eficientes en construcción,
-ejecución de obras y saneamiento físico-legal
-para empresas, garantizando calidad,
-cumplimiento y respaldo técnico en cada
-proyecto
+                    Nuestra fuerza diferenciadora es la capacidad de identificar, formar e integrar líderes de alto rendimiento. A través de una delegación estratégica y planificada, empoderamos a la pequeña empresa para garantizar la máxima satisfacción del cliente y, en consecuencia, asegurar una sólida generación de riqueza
 
                   </p>
                 </div>
@@ -138,12 +134,7 @@ proyecto
                 <div className="relative z-10">
                   <h3 className="text-lg md:text-2xl font-display text-brand-light">Visión</h3>
                   <p className="mt-4 text-xs md:text-sm leading-6 text-brand-beige/75">
-                    Ser una empresa líder en el sector
-construcción y saneamiento legal,
-reconocida por su eficiencia,
-profesionalismo y confianza en el
-desarrollo de proyectos
-inmobiliarios empresariales.
+                    Consolidarnos como la organización más confiable del mercado, distinguidos por una cultura de disciplina, respeto y alta calidad. Transformamos desafíos en oportunidades de negocio viables que garantizan el éxito de nuestros clientes y el crecimiento integral de nuestro equipo
                   </p>
                 </div>
               </article>
