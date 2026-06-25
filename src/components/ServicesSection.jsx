@@ -116,7 +116,7 @@ const ServicesSection = () => {
                     <h3 className="text-xl md:text-2xl font-display text-brand-dark">
                       {service.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-brand-dark/60">
+                    <p className="mt-3 text-sm leading-7 text-brand-dark/60 text-justify">
                       {service.description}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-brand-primary">
