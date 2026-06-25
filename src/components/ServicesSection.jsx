@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiHome, FiClipboard, FiLayers, FiShield } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const ServicesSection = () => {
   const { ref, inView } = useInView({
@@ -91,7 +92,7 @@ const ServicesSection = () => {
                   href={service.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="group overflow-hidden rounded-[1.8rem] border border-brand-primary/12 bg-white shadow-editorial"
+                  className="group overflow-hidden rounded-[1.8rem] border border-brand-primary/12 bg-white shadow-editorial flex flex-col h-full"
                   variants={itemVariants}
                   whileHover={{ y: -8 }}
                 >
@@ -112,15 +113,16 @@ const ServicesSection = () => {
                       <Icon size={18} />
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <h3 className="text-xl md:text-2xl font-display text-brand-dark">
                       {service.title}
                     </h3>
                     <p className="mt-3 text-sm leading-7 text-brand-dark/60 text-justify">
                       {service.description}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-brand-primary">
-                      Consultar
+                    <span className="mt-auto pt-4 inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-brand-primary font-bold group-hover:text-emerald-600 transition-colors duration-300">
+                      <FaWhatsapp size={14} className="text-emerald-600" />
+                      Consultar vía WhatsApp
                     </span>
                   </div>
                 </motion.a>

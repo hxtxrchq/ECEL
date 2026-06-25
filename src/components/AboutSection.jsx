@@ -52,16 +52,18 @@ const AboutSection = () => {
               </h2>
 
               <div className="mt-6 space-y-3">
-                <p className="max-w-3xl text-sm leading-6 text-brand-beige/78">
+                <p className="max-w-3xl text-sm leading-6 text-brand-beige/78 text-justify">
                   En ECEL Ingeniería y Construcción contamos con 9 años de experiencia desarrollando soluciones en construcción, supervisión y saneamiento físico-legal inmobiliario, con enfoque en calidad, cumplimiento, seguridad y respaldo técnico en cada proyecto.
-                </p>
 
-                <p className="max-w-3xl text-sm leading-6 text-brand-beige/62">
-                  Trabajamos con criterio técnico, orden operativo y compromiso profesional para responder a las necesidades de cada cliente con soluciones eficientes y confiables.
-                </p>
+                  Trabajamos con criterio técnico, orden operativo y compromiso profesional para responder a las necesidades de cada cliente con soluciones eficientes y confiables.                </p>
               </div>
 
-
+              <div className="mt-8">
+                <h3 className="text-base md:text-lg font-display text-brand-light tracking-wider mb-2">Nuestros Valores</h3>
+                <p className="max-w-3xl text-xs md:text-sm leading-6 text-brand-beige/75 text-justify">
+                  Nuestra organización está basada en una cultura propia, la que se desarrolla a lo largo de una vivencia empresarial, respaldada por un conjunto de concepciones filosóficas.
+                </p>
+              </div>
             </div>
 
             <motion.div
@@ -116,7 +118,6 @@ const AboutSection = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="relative mt-8 border-t border-brand-beige/15 pt-8"
           >
-            <div className="mb-4 text-xs uppercase tracking-[0.3em] text-brand-beige/55">Dirección institucional</div>
             <div className="grid gap-0 overflow-hidden rounded-lg border border-brand-beige/15 bg-gradient-to-br from-brand-beige/8 to-brand-dark/40 md:grid-cols-2">
               <article className="relative p-6 md:p-7 group hover:from-brand-beige/12 transition-all duration-300 border-r border-brand-beige/10 md:border-r-0 md:border-b-0">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-beige/5 rounded-full blur-3xl -z-0 group-hover:bg-brand-beige/8 transition-all duration-300" />
