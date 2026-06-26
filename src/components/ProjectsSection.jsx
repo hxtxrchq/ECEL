@@ -11,6 +11,44 @@ const ProjectsSection = () => {
 
 	const projects = [
 		{
+			title: 'Saneamiento Técnico y Legal de Propiedades',
+			category: 'Saneamiento legal y técnico',
+			description: 'Servicio especializado en el saneamiento físico, técnico y legal de predios y propiedades. Aseguramos la regularización jurídica, rectificación de áreas, habilitación urbana y viabilidad legal necesaria para el desarrollo de proyectos inmobiliarios.',
+			image: '/images/portfolio/SANEAMIENTO DE PROPIEDADES/1.mp4',
+			images: [
+				'/images/portfolio/SANEAMIENTO DE PROPIEDADES/1.mp4',
+				'/images/portfolio/SANEAMIENTO DE PROPIEDADES/2.mp4',
+				'/images/portfolio/SANEAMIENTO DE PROPIEDADES/3.mp4',
+				'/images/portfolio/SANEAMIENTO DE PROPIEDADES/4.mp4'
+			],
+			cta: 'https://wa.me/51987382111?text=Hola%20ECEL,%20quiero%20informaci%C3%B3n%20del%20proyecto%20Saneamiento%20T%C3%A9cnico%20y%20Legal%20de%20Propiedades.',
+		},
+		{
+			title: 'Supervisión de Obras y Proyectos',
+			category: 'Supervisión y control',
+			description: 'Control de calidad, plazos y seguridad en la ejecución de obras industriales, comerciales y proyectos de alta tecnología. Supervisión de acabados, pavimentos, estructuras metálicas y líneas de producción.',
+			image: '/images/portfolio/SUPERVISION/1.jpg',
+			images: [
+				{
+					src: '/images/portfolio/SUPERVISION/1.jpg',
+					desc: 'Supervisión y optimización de iluminación LED de alta eficiencia y distribución de stock en almacenes industriales de gran envergadura.'
+				},
+				{
+					src: '/images/portfolio/SUPERVISION/2.jpg',
+					desc: 'Control de calidad y acabados de pavimentos de epoxi reflectantes en hangares con estructuras metálicas de alta resistencia.'
+				},
+				{
+					src: '/images/portfolio/SUPERVISION/3.jpg',
+					desc: 'Supervisión de obra civil y control del vaciado de concreto premezclado en edificaciones residenciales de varios niveles.'
+				},
+				{
+					src: '/images/portfolio/SUPERVISION/4.jpg',
+					desc: 'Monitoreo de estándares y aseguramiento de calidad técnica en líneas de ensamble automatizadas de alta tecnología.'
+				}
+			],
+			cta: 'https://wa.me/51987382111?text=Hola%20ECEL,%20quiero%20informaci%C3%B3n%20sobre%20Supervisi%C3%B3n%20de%20Obras%20y%20Proyectos.',
+		},
+		{
 			title: 'Edificio Residencial Iglesias',
 			category: 'Arquitectura residencial',
 			description: 'Diseño residencial sofisticado con acabado continuo de microcemento gris mineral en muros exteriores, contrastado con voladizos de piedra granalla gris carbón. Cuenta con marcos negros texturizados, vidrio de alta transparencia e iluminación lineal cálida empotrada bajo molduras.',
@@ -173,12 +211,24 @@ const ProjectsSection = () => {
 										>
 											{/* Front side */}
 											<div className="absolute inset-0 [backface-visibility:hidden]">
-												<img
-													src={project.image}
-													alt={project.title}
-													className="h-full w-full object-cover"
-													loading="lazy"
-												/>
+												{project.image.toLowerCase().endsWith('.mp4') ? (
+													<video
+														src={project.image}
+														className="h-full w-full object-cover"
+														muted
+														loop
+														playsInline
+														autoPlay
+														preload="auto"
+													/>
+												) : (
+													<img
+														src={project.image}
+														alt={project.title}
+														className="h-full w-full object-cover"
+														loading="lazy"
+													/>
+												)}
 												<div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/28 to-black/5" />
 												<div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-between text-brand-light">
 													<div className="flex items-start justify-between gap-4">
@@ -222,7 +272,10 @@ const ProjectsSection = () => {
 														className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-brand-light/85 hover:text-emerald-500 hover:scale-105 transition-all duration-300 font-bold"
 													>
 														<FiImage size={14} />
-														Ver fotos
+														{project.images.some(img => {
+															const src = typeof img === 'string' ? img : img.src
+															return src.toLowerCase().endsWith('.mp4')
+														}) ? 'Ver videos' : 'Ver fotos'}
 													</button>
 													<a
 														href={project.cta}
@@ -278,18 +331,40 @@ const ProjectsSection = () => {
 								<FiArrowLeft size={20} />
 							</button>
 
-							{/* Main Image Container */}
+							{/* Main Content Container */}
 							<div className="relative w-full h-full overflow-hidden flex items-center justify-center rounded-2xl border border-white/10 bg-black/40">
-								<motion.img
-									key={currentImageIndex}
-									src={galleryProject.images[currentImageIndex]}
-									alt={`${galleryProject.title} - Foto ${currentImageIndex + 1}`}
-									initial={{ opacity: 0, scale: 0.96 }}
-									animate={{ opacity: 1, scale: 1 }}
-									exit={{ opacity: 0, scale: 0.96 }}
-									transition={{ duration: 0.25 }}
-									className="absolute max-w-full max-h-full object-contain"
-								/>
+								{(() => {
+									const currentItem = galleryProject.images[currentImageIndex]
+									const src = typeof currentItem === 'string' ? currentItem : currentItem.src
+									const isVid = src.toLowerCase().endsWith('.mp4')
+
+									if (isVid) {
+										return (
+											<video
+												key={currentImageIndex}
+												src={src}
+												controls
+												autoPlay
+												playsInline
+												preload="auto"
+												className="absolute max-w-full max-h-full object-contain"
+											/>
+										)
+									} else {
+										return (
+											<motion.img
+												key={currentImageIndex}
+												src={src}
+												alt={`${galleryProject.title} - Archivo ${currentImageIndex + 1}`}
+												initial={{ opacity: 0, scale: 0.96 }}
+												animate={{ opacity: 1, scale: 1 }}
+												exit={{ opacity: 0, scale: 0.96 }}
+												transition={{ duration: 0.25 }}
+												className="absolute max-w-full max-h-full object-contain"
+											/>
+										)
+									}
+								})()}
 							</div>
 
 							{/* Right Navigation Arrow */}
@@ -302,12 +377,24 @@ const ProjectsSection = () => {
 							</button>
 						</div>
 
-						{/* Title & Counter */}
-						<div className="mt-4 text-center text-brand-light z-[110]" onClick={(e) => e.stopPropagation()}>
+						{/* Title, Description & Counter */}
+						<div className="mt-4 text-center text-brand-light z-[110] max-w-2xl px-4" onClick={(e) => e.stopPropagation()}>
 							<h4 className="text-lg md:text-xl font-display uppercase tracking-widest text-brand-light/90">
 								{galleryProject.title}
 							</h4>
-							<p className="text-xs text-brand-beige/50 mt-1">
+							{(() => {
+								const currentItem = galleryProject.images[currentImageIndex]
+								const desc = typeof currentItem === 'object' && currentItem !== null ? currentItem.desc : ''
+								if (desc) {
+									return (
+										<p className="text-xs md:text-sm text-brand-beige/85 mt-2 max-w-xl mx-auto italic font-light leading-relaxed">
+											{desc}
+										</p>
+									)
+								}
+								return null
+							})()}
+							<p className="text-xs text-brand-beige/50 mt-2">
 								{currentImageIndex + 1} de {galleryProject.images.length}
 							</p>
 						</div>
@@ -317,19 +404,41 @@ const ProjectsSection = () => {
 							className="mt-6 flex gap-2.5 overflow-x-auto max-w-full px-4 py-2 scrollbar-none z-[110]" 
 							onClick={(e) => e.stopPropagation()}
 						>
-							{galleryProject.images.map((img, idx) => (
-								<button
-									key={idx}
-									onClick={() => setCurrentImageIndex(idx)}
-									className={`relative h-12 w-16 md:h-16 md:w-24 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-										idx === currentImageIndex 
-											? 'border-emerald-500 scale-105 shadow-md shadow-emerald-950/50' 
-											: 'border-transparent opacity-40 hover:opacity-80'
-									}`}
-								>
-									<img src={img} alt="" className="h-full w-full object-cover" />
-								</button>
-							))}
+							{galleryProject.images.map((img, idx) => {
+								const src = typeof img === 'string' ? img : img.src
+								const isVid = src.toLowerCase().endsWith('.mp4')
+
+								return (
+									<button
+										key={idx}
+										onClick={() => setCurrentImageIndex(idx)}
+										className={`relative h-12 w-16 md:h-16 md:w-24 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+											idx === currentImageIndex 
+												? 'border-emerald-500 scale-105 shadow-md shadow-emerald-950/50' 
+												: 'border-transparent opacity-40 hover:opacity-80'
+										}`}
+									>
+										{isVid ? (
+											<div className="w-full h-full bg-neutral-900 flex items-center justify-center relative">
+												<video 
+													src={src} 
+													className="h-full w-full object-cover opacity-60" 
+													muted 
+													preload="none"
+													playsInline
+												/>
+												<div className="absolute inset-0 flex items-center justify-center">
+													<div className="w-6 h-6 rounded-full bg-black/60 flex items-center justify-center border border-white/20">
+														<div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[7px] border-l-white ml-0.5" />
+													</div>
+												</div>
+											</div>
+										) : (
+											<img src={src} alt="" className="h-full w-full object-cover" />
+										)}
+									</button>
+								)
+							})}
 						</div>
 					</motion.div>
 				)}
