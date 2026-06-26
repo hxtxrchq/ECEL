@@ -11,6 +11,20 @@ const ProjectsSection = () => {
 
 	const projects = [
 		{
+			title: 'Edificio Residencial Iglesias',
+			category: 'Arquitectura residencial',
+			description: 'Diseño residencial sofisticado con acabado continuo de microcemento gris mineral en muros exteriores, contrastado con voladizos de piedra granalla gris carbón. Cuenta con marcos negros texturizados, vidrio de alta transparencia e iluminación lineal cálida empotrada bajo molduras.',
+			image: '/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/1.jpg',
+			images: [
+				'/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/1.jpg',
+				'/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/2.jpg',
+				'/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/3.jpg',
+				'/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/4.jpg',
+				'/images/portfolio/DISEÑO DE EDIFICIO RESIDENCIAL IGLESIAS/55.jpg'
+			],
+			cta: 'https://wa.me/51987382111?text=Hola%20ECEL,%20quiero%20informaci%C3%B3n%20del%20proyecto%20Edificio%20Residencial%20Iglesias.',
+		},
+		{
 			title: 'Casa de Campo Mochica',
 			category: 'Arquitectura residencial',
 			description: 'Diseño moderno con estructura de líneas rectas y tres niveles definidos, ubicado en el distrito de Moche. Cuenta con techos planos, grandes ventanales, terrazas abiertas, revestimiento texturizado de tonos claros en columnas y muros, detalles en madera cálida, metal negro y vidrio templado.',
