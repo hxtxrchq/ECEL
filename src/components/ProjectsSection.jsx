@@ -11,6 +11,20 @@ const ProjectsSection = () => {
 
 	const projects = [
 		{
+			title: 'Casa de Campo Mochica',
+			category: 'Arquitectura residencial',
+			description: 'Diseño moderno con estructura de líneas rectas y tres niveles definidos, ubicado en el distrito de Moche. Cuenta con techos planos, grandes ventanales, terrazas abiertas, revestimiento texturizado de tonos claros en columnas y muros, detalles en madera cálida, metal negro y vidrio templado.',
+			image: '/images/portfolio/CASA DE CAMPO MOCHICA/1.jpg',
+			images: [
+				'/images/portfolio/CASA DE CAMPO MOCHICA/1.jpg',
+				'/images/portfolio/CASA DE CAMPO MOCHICA/2.jpg',
+				'/images/portfolio/CASA DE CAMPO MOCHICA/3.jpg',
+				'/images/portfolio/CASA DE CAMPO MOCHICA/4.jpg',
+				'/images/portfolio/CASA DE CAMPO MOCHICA/5.jpg'
+			],
+			cta: 'https://wa.me/51987382111?text=Hola%20ECEL,%20quiero%20informaci%C3%B3n%20del%20proyecto%20Casa%20de%20Campo%20Mochica.',
+		},
+		{
 			title: 'Villa Irene',
 			category: 'Habilitación urbana',
 			description: 'Proyecto de habilitación urbana y saneamiento integral de predios, asegurando la viabilidad técnica y legal del desarrollo inmobiliario.',

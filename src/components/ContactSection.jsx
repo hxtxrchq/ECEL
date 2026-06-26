@@ -10,6 +10,54 @@ import instagramLogo from '/images/social/instagram.png'
 const ContactSection = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
 
+  const [formData, setFormData] = React.useState({
+    name: '',
+    company: '',
+    email: '',
+    message: ''
+  })
+  const [status, setStatus] = React.useState('idle') // idle, submitting, success, error
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('submitting')
+
+    try {
+      const payload = {
+        'Nombre Completo': formData.name,
+        'Empresa': formData.company,
+        'Correo Electrónico': formData.email,
+        'Mensaje': formData.message
+      }
+
+      const response = await fetch('https://formspree.io/f/xwvdoepk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', company: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+    }
+  }
+
   const details = [
     {
       icon: FiPhone,
@@ -152,61 +200,114 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 md:p-14 backdrop-blur-sm shadow-editorial self-center">
-            <div className="mb-8 flex justify-center md:justify-start">
-              <div className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-semibold text-brand-light/90 shadow-sm flex items-center gap-x-2.5 flex-wrap justify-center">
-                <span>Construcción</span>
-                <span className="text-white/20">•</span>
-                <span>Supervisión</span>
-                <span className="text-white/20">•</span>
-                <span>Diseño Arquitectónico</span>
-                <span className="text-white/20">•</span>
-                <span>Saneamiento</span>
-              </div>
-            </div>
-            <div className="grid gap-7">
-              <div className="grid gap-3">
-                <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Nombre completo</label>
-                <input
-                  className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
-                  placeholder="Escribe tu nombre y apellidos"
-                />
-              </div>
-              <div className="grid gap-3">
-                <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Empresa</label>
-                <input
-                  className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
-                  placeholder="Nombre de tu organización"
-                />
-              </div>
-              <div className="grid gap-3">
-                <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Correo electrónico</label>
-                <input
-                  className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
-                  placeholder="tu@email.com"
-                  type="email"
-                />
-              </div>
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 md:p-14 backdrop-blur-sm shadow-editorial self-center min-h-[600px] flex flex-col justify-center">
+            {status === 'success' ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12 flex flex-col items-center justify-center h-full"
+              >
+                <div className="rounded-full bg-emerald-500/10 border border-emerald-500/20 p-4 text-emerald-400 mb-6">
+                  <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-display text-brand-light mb-3">¡Solicitud Enviada!</h3>
+                <p className="text-brand-beige/70 text-sm max-w-sm mb-8 leading-relaxed">
+                  Hemos recibido tu mensaje correctamente. Nuestro equipo se pondrá en contacto contigo en menos de 24 horas.
+                </p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 px-6 py-3 text-xs font-black uppercase tracking-widest text-brand-light transition-all"
+                >
+                  Enviar otro mensaje
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col h-full justify-between">
+                <div>
+                  <div className="mb-8 flex justify-center md:justify-start">
+                    <div className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-semibold text-brand-light/90 shadow-sm flex items-center gap-x-2.5 flex-wrap justify-center">
+                      <span>Construcción</span>
+                      <span className="text-white/20">•</span>
+                      <span>Supervisión</span>
+                      <span className="text-white/20">•</span>
+                      <span>Diseño Arquitectónico</span>
+                      <span className="text-white/20">•</span>
+                      <span>Saneamiento</span>
+                    </div>
+                  </div>
+                  <div className="grid gap-7">
+                    <div className="grid gap-3">
+                      <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Nombre completo</label>
+                      <input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
+                        placeholder="Escribe tu nombre y apellidos"
+                      />
+                    </div>
+                    <div className="grid gap-3">
+                      <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Empresa</label>
+                      <input
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
+                        placeholder="Nombre de tu organización (opcional)"
+                      />
+                    </div>
+                    <div className="grid gap-3">
+                      <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Correo electrónico</label>
+                      <input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 focus:ring-1 focus:ring-white/15 text-base"
+                        placeholder="tu@email.com"
+                      />
+                    </div>
 
-              <div className="grid gap-3">
-                <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Descripción</label>
-                <textarea
-                  rows="4"
-                  className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 resize-none focus:ring-1 focus:ring-white/15 text-base"
-                  placeholder="Cuéntanos brevemente sobre tu proyecto"
-                />
-              </div>
-            </div>
+                    <div className="grid gap-3">
+                      <label className="text-[11px] uppercase tracking-[0.3em] text-brand-beige/60 font-bold ml-1.5">Descripción</label>
+                      <textarea
+                        name="message"
+                        rows="4"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-2xl border border-white/15 bg-black/50 px-7 py-5 text-brand-light outline-none transition-all placeholder:text-brand-beige/20 focus:border-white/40 focus:bg-black/70 resize-none focus:ring-1 focus:ring-white/15 text-base"
+                        placeholder="Cuéntanos brevemente sobre tu proyecto"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-            <div className="mt-10 flex flex-col gap-4">
-              <button className="inline-flex items-center justify-center rounded-full bg-brand-light px-8 py-5 text-[13px] font-black uppercase tracking-widest text-brand-dark transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(255,255,255,0.15)] hover:bg-white w-full">
-                ENVIAR SOLICITUD
-                <FiArrowRight className="ml-3" />
-              </button>
-              <p className="text-center text-[10.5px] uppercase tracking-[0.25em] text-brand-beige/70 font-medium">
-                Respuesta garantizada en menos de 24 horas
-              </p>
-            </div>
+                {status === 'error' && (
+                  <div className="mt-4 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-200 text-xs">
+                    Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.
+                  </div>
+                )}
+
+                <div className="mt-10 flex flex-col gap-4">
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="inline-flex items-center justify-center rounded-full bg-brand-light px-8 py-5 text-[13px] font-black uppercase tracking-widest text-brand-dark transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(255,255,255,0.15)] hover:bg-white w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  >
+                    {status === 'submitting' ? 'ENVIANDO...' : 'ENVIAR SOLICITUD'}
+                    <FiArrowRight className="ml-3" />
+                  </button>
+                  <p className="text-center text-[10.5px] uppercase tracking-[0.25em] text-brand-beige/70 font-medium">
+                    Respuesta garantizada en menos de 24 horas
+                  </p>
+                </div>
+              </form>
+            )}
           </div>
         </motion.div>
       </div>
