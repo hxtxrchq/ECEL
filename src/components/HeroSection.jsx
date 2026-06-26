@@ -57,15 +57,15 @@ const HeroSection = () => {
 						transition={{ duration: 0.7, ease: 'easeOut' }}
 					>
 						<div className="mb-4 text-brand-beige/90">
-							<div className="text-sm uppercase tracking-widest font-semibold">ECEL Ingeniería y Construcción</div>
+							<div className="text-sm uppercase tracking-widest font-semibold">ECEL Perú</div>
 						</div>
 
-						<h1 className="editorial-title text-brand-light leading-tight">
-							Construimos confianza, edificamos tu futuro
+						<h1 className="editorial-title text-brand-light leading-tight font-display">
+							Ingeniería, Construcción y Saneamiento Técnico-Legal
 						</h1>
 
 						<p className="mt-6 max-w-2xl text-base leading-7 text-brand-beige/80 md:text-lg">
-							Cada proyecto es una nueva historia que merece ser contada con pasión y excelencia.
+							Somos una constructora con criterio técnico y respaldo profesional. Desarrollamos obras de edificación residencial, comercial e industrial, supervisión de proyectos y saneamiento físico-legal de propiedades en todo el Perú.
 						</p>
 
 						<div className="mt-8 flex flex-wrap items-center gap-4">
